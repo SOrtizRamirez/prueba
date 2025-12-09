@@ -31,7 +31,7 @@ export class CategoryController {
   }
 
   @Get()
-  @Roles(Role.ADMIN) // puedes permitir más roles si quieres
+  @Roles(Role.ADMIN)
   findAll() {
     return this.categoryService.findAll();
   }

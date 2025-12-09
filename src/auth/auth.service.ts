@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { User } from '../users/users.entity';
 import { Role } from '../common/enums/role.enum';
-import { log } from 'console';
+
 
 @Injectable()
 export class AuthService {
