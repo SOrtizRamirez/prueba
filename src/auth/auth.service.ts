@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { User } from '../users/users.entity';
 import { Role } from '../common/enums/role.enum';
+import { log } from 'console';
 
 @Injectable()
 export class AuthService {
@@ -17,8 +18,9 @@ export class AuthService {
     async validateUser(email: string, password: string): Promise<User> {
         const user = await this.userRepo.findOne({ where: { email } });
         if (!user) throw new UnauthorizedException('Credenciales inválidas');
-
+        console.log('User found:', user);
         const match = await bcrypt.compare(password, user.password);
+        console.log('Password match result:', match);
         if (!match) throw new UnauthorizedException('Credenciales inválidas');
 
         return user;

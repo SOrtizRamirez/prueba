@@ -1,3 +1,4 @@
+// src/client/client.entity.ts
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -20,7 +21,8 @@ export class Client {
   @Column({ length: 150, nullable: true })
   company?: string;
 
-  @Column({ length: 150 })
+  // 👇 AQUÍ ESTABA EL PROBLEMA
+  @Column({ name: 'contact_email', length: 150 })
   contactEmail: string;
 
   @OneToOne(() => User, (user) => user.client, { eager: true })
