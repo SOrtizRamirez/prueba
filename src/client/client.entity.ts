@@ -21,7 +21,6 @@ export class Client {
   @Column({ length: 150, nullable: true })
   company?: string;
 
-  // 👇 AQUÍ ESTABA EL PROBLEMA
   @Column({ name: 'contact_email', length: 150 })
   contactEmail: string;
 

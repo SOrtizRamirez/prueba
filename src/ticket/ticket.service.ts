@@ -28,6 +28,7 @@ export class TicketService {
   ) {}
 
   async create(createDto: CreateTicketDto, currentUser: any) {
+
     if (currentUser.role !== Role.CLIENT && currentUser.role !== Role.ADMIN) {
       throw new ForbiddenException('Solo clientes o admin pueden crear tickets');
     }
